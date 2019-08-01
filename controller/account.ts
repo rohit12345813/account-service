@@ -1,7 +1,7 @@
 import CreateAccountService from "../services/account/createAccount";
 import DepositAmountService from "../services/account/depositAmount";
 import WithdrawAmountService from "../services/account/withdrawAmount";
-import ResponseService from "../services/response";
+import ResponseService from "../utils/response";
 
 class AccountController {
   public static async createAccount(req, res) {

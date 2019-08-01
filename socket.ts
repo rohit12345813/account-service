@@ -1,7 +1,7 @@
 import of from "await-of";
 import Faye from "faye";
 import config from "./config";
-import Cache from "./services/cache";
+import Cache from "./utils/cache";
 
 interface ISocket {
   fayeConfigInstance: object;

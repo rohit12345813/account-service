@@ -1,12 +1,5 @@
-import config from "./config";
-
-interface IMethodHelper {
-  setDigit(input: string | number): string;
-  getUniqId(): string;
-  isEmail(input: string): boolean;
-  isString(input: string): boolean;
-  isNumber(input: number): boolean;
-}
+import config from "../config";
+import {IMethodHelper} from "../interfaces";
 
 const methodHelper: IMethodHelper = {
   setDigit(input) {

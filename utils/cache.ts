@@ -1,20 +1,9 @@
 import of from "await-of";
 import NodeCache from "node-cache";
 import config from "../config";
+import {ICache} from "../interfaces";
 
 const ttlSeconds: number = config.get("cacheTTL");
-
-interface ICache {
-  cacheInstance: NodeCache | null;
-  deleteKey(input: string): Promise<boolean | object>;
-  setCache(): void;
-  getCacheInstance(): NodeCache;
-  getKey(key: string): Promise<string>;
-  setKey(key: string, value: object): Promise<object>;
-  getKeys(): Promise<[string] | string>;
-  getMultipleKeysWithValues(keys: [string]): Promise<object>;
-  isKeyValuePresent(key: string, value: string): Promise<boolean>;
-}
 
 const Cache: ICache = {
   cacheInstance: null,

@@ -2,8 +2,8 @@ import bodyParser from "body-parser";
 import express from "express";
 import config from "./config";
 import { account } from "./routes/account";
-import Cache from "./services/cache";
 import Socket from "./socket";
+import Cache from "./utils/cache";
 
 const app = express();
 const port = config.get("port");

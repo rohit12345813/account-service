@@ -1,14 +1,9 @@
 import of from "await-of";
 import config from "../../config";
-import MethodHelper from "../../helper";
-import Cache from "../cache";
+import {IWithdrawAmountService} from "../../interfaces";
+import Cache from "../../utils/cache";
+import MethodHelper from "../../utils/helper";
 import PublishAccountBalanceService from "../publishAccountBalance";
-
-interface IWithdrawAmountService {
-  amount: number;
-  sourceAccountNumber: string;
-  email: string;
-}
 
 export default class WithdrawAmountService {
 
@@ -30,7 +25,7 @@ export default class WithdrawAmountService {
 
     // check if amount exceed than maximum withdraw limit
     if (amount > maximumWithdrawLimit) {
-      return [null, `You can\'t withdraw amount greater than ${maximumWithdrawLimit}`];
+      return [null, `You can't withdraw amount greater than ${maximumWithdrawLimit}`];
     }
 
     const newAmount = parseFloat(data.balance) - amount;

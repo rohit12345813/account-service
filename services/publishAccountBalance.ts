@@ -1,11 +1,5 @@
-import of from "await-of";
+import {IPublishAccountBalanceService} from "../interfaces";
 import SocketHelper from "../socket";
-import Cache from "./cache";
-
-interface IPublishAccountBalanceService  {
-  accountNumber: string;
-  balance: string;
-}
 
 class PublishAccountBalanceService {
   public static async perform({accountNumber, balance}: IPublishAccountBalanceService) {

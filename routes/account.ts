@@ -4,6 +4,8 @@ import validateToken from "../middlewares/validateToken";
 
 export const account = Router();
 
-account.post("/api/account", AccountController.createAccount);
-account.post("/api/account/withdraw", validateToken, AccountController.withdrawAmount);
-account.post("/api/account/deposit", validateToken, AccountController.depositAmount);
+const API_END_POINT = "/api/account";
+
+account.post(API_END_POINT, AccountController.createAccount);
+account.post(`${API_END_POINT}/withdraw`, validateToken, AccountController.withdrawAmount);
+account.post(`${API_END_POINT}/deposit`, validateToken, AccountController.depositAmount);

@@ -1,9 +1,5 @@
 import express from "express";
-
-interface IData  {
-  data?: object | string;
-  reason?: object | string;
-}
+import {IData} from "../interfaces";
 
 class Responder {
 
