@@ -4,6 +4,11 @@ Follow steps to start the server -
 - npm install
 - npm start
 
+**Note**
+
+- APIs mentioned in the transfer service section below will not called from user side.
+- You can configure the settings by edit the file config.ts.
+
 **API exposed to User Side**
 
 # POST http://localhost:4000/api/account (default PORT 4000)
@@ -178,6 +183,3 @@ data          | Object                    | User account details with number
     "message": "Request successfully performed!!"
 }
 ```
-___
-
-Note - APIs mentioned in the transfer service not called from user side.
