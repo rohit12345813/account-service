@@ -3,6 +3,7 @@ import express from "express";
 import config from "./config";
 import { account } from "./routes/account";
 import Cache from "./services/cache";
+import Socket from "./socket";
 
 const app = express();
 const port = config.get("port");
@@ -22,11 +23,13 @@ app.use((req, res, next) => {
 
 app.use("/", account);
 
-app.listen(port, (err) => {
+const listen = app.listen(port, (err) => {
   if (err) {
     return console.error(err);
   }
   Cache.setCache();
   console.log(`Started ${config.get("app.name")}`);
-  return console.log(`server is listening on ${port}, env ${config.get("env")}`);
+  console.log(`server is listening on ${port}, env ${config.get("env")}`);
 });
+
+Socket.setFayeSocket(listen);

@@ -1,6 +1,7 @@
 import of from "await-of";
 import config from "../../config";
 import MethodHelper from "../../helper";
+import SocketHelper from "../../socket";
 import Cache from "../cache";
 
 interface ICreateAccountService {

@@ -6,6 +6,7 @@ const ttlSeconds: number = config.get("cacheTTL");
 
 interface ICache {
   cacheInstance: NodeCache | null;
+  deleteKey(input: string): Promise<boolean | object>;
   setCache(): void;
   getCacheInstance(): NodeCache;
   getKey(key: string): Promise<string>;
@@ -17,6 +18,18 @@ interface ICache {
 
 const Cache: ICache = {
   cacheInstance: null,
+
+  async deleteKey(input) {
+    return new Promise((resolve, reject) => {
+      this.cacheInstance.del(input, (err, res) => {
+        if (!err) {
+          resolve(true);
+        } else {
+          reject(err);
+        }
+      });
+    });
+  },
 
   setCache() {
     this.cacheInstance = new NodeCache({ stdTTL: ttlSeconds, checkperiod: ttlSeconds * 0.2, useClones: false });

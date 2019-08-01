@@ -2,6 +2,7 @@ import of from "await-of";
 import config from "../../config";
 import MethodHelper from "../../helper";
 import Cache from "../cache";
+import PublishAccountBalanceService from "../publishAccountBalance";
 
 interface IWithdrawAmountService {
   amount: number;
@@ -41,6 +42,11 @@ export default class WithdrawAmountService {
     };
 
     const [, error2] = await of(Cache.setKey(data.accountNumber, accountObj));
+
+    PublishAccountBalanceService.perform({
+      accountNumber: data.accountNumber,
+      balance:  accountObj.balance,
+    });
 
     console.log("WithdrawAmountService method finished");
     return  [accountObj, error2];

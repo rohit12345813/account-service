@@ -56,6 +56,20 @@ const config = convict({
     env: "PORT",
     format: Number,
   },
+  socket:  {
+    path: {
+      default: "/faye",
+      doc: "Faye service socket path",
+      env: "SOCKET_PATH",
+      format: String,
+    },
+    timeout: {
+      default: 45,
+      doc: "Faye service timeout",
+      env: "SOCKET_TIMEOUT",
+      format: Number,
+    },
+  },
   transferService: {
     password: {
       default: "admin@#@$%!",
