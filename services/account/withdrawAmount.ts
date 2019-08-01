@@ -58,6 +58,10 @@ export default class WithdrawAmountService {
       return [null, "Invalid Source Email Address"];
     }
 
+    if (amount <= 0) {
+      return [null, "Amount should greater than zero!!"];
+    }
+
     if (data.balance < amount) {
       return [null, "Insufficient balance"];
     }

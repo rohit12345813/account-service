@@ -18,6 +18,9 @@ export default class DepositAmountService {
 
     const maximumDepositLimit = config.get("maximumDepositLimit");
 
+    if (amount <= 0) {
+      return [null, "Amount should greater than zero!!"];
+    }
     // Check if deposit limit exceed or not
     if (amount > maximumDepositLimit) {
       return [null, `You can't send deposit amount greater than ${maximumDepositLimit}`];

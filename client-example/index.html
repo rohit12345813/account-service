@@ -7,7 +7,7 @@
       const client = new Faye.Client(URL);
       console.log("Client created!!");
       // use account number
-      const subscription = client.subscribe('/1000037302', function(data) {
+      const subscription = client.subscribe('/1000054449', function(data) {
         console.error("received data ========>", data);
         document.getElementById("balance").innerHTML = "Account balance - " + data.balance;
       });
