@@ -9,6 +9,12 @@ Follow steps to start the server -
 - APIs mentioned in the transfer service section below will not called from user side.
 - You can configure the settings by edit the file config.ts.
 
+**Socket exposed to User**
+
+## User can get the live balance details by subscribing the channel using the accountNumber.
+
+Example - If your accountNumber is '1000032123' then you'll get the live balance details by subscribing '/1000032123'. You can check the file 'index.html' inside the client-example directory for more details.  
+
 **API exposed to User Side**
 
 # POST http://localhost:4000/api/account (default PORT 4000)

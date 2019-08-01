@@ -1,0 +1,22 @@
+<html>
+  <head>
+	 <script type="text/javascript" src="./faye-client.js"> </script>
+	   <script>
+   		console.log("Client started!!, Please reconfigure the host name, if you need");
+      const URL = 'http://localhost:4000/faye'
+      const client = new Faye.Client(URL);
+      console.log("Client created!!");
+      // use account number
+      const subscription = client.subscribe('/1000037302', function(data) {
+        console.error("received data ========>", data);
+        document.getElementById("balance").innerHTML = "Account balance - " + data.balance;
+      });
+    </script>
+
+  </head>
+  <body>
+  	<div id="test">
+      <h2 id="balance"></h2>
+  	</div>
+  </body>
+</html>
